@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { 
+  BrowserRouter,   
+  Routes,
+  Route 
+} from "react-router-dom";
+
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import MainPage from './routes/main';
+import StaffList from './routes/staff/list';
+import Staff from './routes/staff/element';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/staff" element={<StaffList />} />
+        <Route path="/staff/:username" element={<Staff />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
